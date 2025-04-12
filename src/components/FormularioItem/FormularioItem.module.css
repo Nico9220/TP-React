@@ -1,0 +1,15 @@
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px auto;
+    max-width: 400px;
+  }
+  
+  .formulario input,
+  .formulario select,
+  .formulario button {
+    padding: 10px;
+    font-size: 1rem;
+  }
+  
