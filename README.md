@@ -1,3 +1,33 @@
+# TP React – Gestor de Películas y Series 🎬
+
+## 👨‍💻 Integrantes del grupo
+FAI-3147	Almiron Abigail Juliana
+FAI-1440	Avila Dante
+FAI-4393	Caretta Nicolás
+
+## 📝 Descripción de la aplicación
+Aplicación desarrollada en React para gestionar películas y series por ver y ya vistas. Permite agregar, editar, eliminar, marcar como vista y aplicar filtros de búsqueda, género, tipo y ordenamiento por año o rating. Todos los datos se guardan en `localStorage`.
+
+---
+
+## 📁 Explicación de archivos principales
+
+- `index.js`: Punto de entrada de la aplicación React. Renderiza el componente `<App />` dentro del DOM.
+- `App.js`: Componente raíz donde se define la estructura principal de la app y se renderizan las páginas.
+- `index.css`: Archivo de estilos globales para toda la aplicación.
+- `package.json`: Archivo que define las dependencias del proyecto, scripts disponibles, nombre, versión, etc.
+
+---
+
+## ⚙️ Instalación y ejecución
+
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/Nico9220/TP-React.git
+   cd TP-React
+
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
