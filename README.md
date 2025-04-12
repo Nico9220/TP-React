@@ -1,9 +1,9 @@
 # TP React – Gestor de Películas y Series 🎬
 
 ## 👨‍💻 Integrantes del grupo
-FAI-3147	Almiron Abigail Juliana
-FAI-1440	Avila Dante
-FAI-4393	Caretta Nicolás
+- FAI-3147	Almiron Abigail Juliana
+- FAI-1440	Avila Dante
+- FAI-4393	Caretta Nicolás
 
 ## 📝 Descripción de la aplicación
 Aplicación desarrollada en React para gestionar películas y series por ver y ya vistas. Permite agregar, editar, eliminar, marcar como vista y aplicar filtros de búsqueda, género, tipo y ordenamiento por año o rating. Todos los datos se guardan en `localStorage`.
