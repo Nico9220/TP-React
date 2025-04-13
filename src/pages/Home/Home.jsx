@@ -3,12 +3,28 @@ import Titulo from '../../components/Titulo/Titulo';
 import FormularioItem from '../../components/FormularioItem/FormularioItem';
 import ListaItems from '../../components/ListaItems/ListaItems';
 import Peliculas from '../../components/Peliculas/Peliculas';
+
 const Home = () => {
   const [porVer, setPorVer] = useState([]);
   const [vistas, setVistas] = useState([]);
+  const [mostrarFormulario, setMostrarFormulario] = useState(false);
 
-  const handleAgregar = (nuevoItem) => {
-    setPorVer([...porVer, nuevoItem]);
+  const handleAgregarPorVer = (nuevoItem) => {
+    setPorVer([...porVer, { ...nuevoItem, visto: false }]); 
+    setMostrarFormulario(false); 
+  };
+
+  const handleAgregarVista = (nuevoItem) => {
+    setVistas([...vistas, { ...nuevoItem, visto: true }]); 
+    setMostrarFormulario(false); 
+  };
+
+  const handleMostrarFormulario = () => {
+    setMostrarFormulario(true);
+  };
+
+  const handleCancelarFormulario = () => {
+    setMostrarFormulario(false);
   };
 
   const marcarComoVista = (id) => {
@@ -22,7 +38,13 @@ const Home = () => {
   return (
     <div>
       <Titulo texto="🎬 Gestor de Películas y Series" />
-      <Peliculas/>
+      <Peliculas
+        onAgregarPorVer={handleAgregarPorVer}
+        onAgregarVista={handleAgregarVista}
+        mostrarFormulario={mostrarFormulario}
+        onMostrarFormulario={handleMostrarFormulario}
+        onCancelarFormulario={handleCancelarFormulario}
+      />
       <ListaItems titulo="📺 Por ver" items={porVer} onMarcarVista={marcarComoVista} />
       <ListaItems titulo="✅ Vistas" items={vistas} />
     </div>

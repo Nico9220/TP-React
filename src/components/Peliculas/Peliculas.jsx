@@ -4,45 +4,31 @@ import ListaPeliculas from './ListaPeliculas';
 import './Peliculas.module.css';
 import peliculasIndispensables from '../../../data/pelis.json';
 
-const DivPeliculas = () => {
-    const [mostrarFormulario, setMostrarFormulario] = useState(false);
-    const [peliculas, setPeliculas] = useState(peliculasIndispensables); 
-  
-    const handleAgregarClick = () => {
-      setMostrarFormulario(true);
-    };
-  
-    const handleAgregarPelicula = (nuevoItem) => {
-      setPeliculas([...peliculas, nuevoItem]);
-    };
-  
-    const handleCancelarFormulario = () => {
-      setMostrarFormulario(false);
-    };
-  
-    return (
-      <div className="contenedor-peliculas">
-        <div className="cabecera-peliculas">
-          <h2>Películas</h2>
-          {!mostrarFormulario && (
-            <button className="boton-agregar" onClick={handleAgregarClick}>
-              + Agregar
-            </button>
-          )}
-        </div>
-  
+const Peliculas = ({ onAgregarPorVer, onAgregarVista, mostrarFormulario, onMostrarFormulario, onCancelarFormulario }) => {
+  return (
+    <div className="contenedor-peliculas">
+      <div className="cabecera-peliculas">
+        <h2>Películas</h2>
         {!mostrarFormulario && (
-          <ListaPeliculas peliculas={peliculas} />
-        )}
-  
-        {mostrarFormulario && (
-          <FormularioItem
-            onAgregar={handleAgregarPelicula}
-            onCancelar={handleCancelarFormulario}
-          />
+          <button className="boton-agregar" onClick={onMostrarFormulario}>
+            + Agregar
+          </button>
         )}
       </div>
-    );
-  };
-  
-  export default DivPeliculas;
+
+      {!mostrarFormulario && (
+        <ListaPeliculas peliculas={peliculasIndispensables} />
+      )}
+
+      {mostrarFormulario && (
+        <FormularioItem
+          onAgregarPorVer={onAgregarPorVer}
+          onAgregarVista={onAgregarVista}
+          onCancelar={onCancelarFormulario}
+        />
+      )}
+    </div>
+  );
+};
+
+export default Peliculas;

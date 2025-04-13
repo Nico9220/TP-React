@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import styles from './FormularioItem.module.css';
 
-const FormularioItem = ({ onAgregar, onCancelar }) => {
+const FormularioItem = ({ onAgregarPorVer, onAgregarVista, onCancelar }) => {
   const [titulo, setTitulo] = useState('');
   const [director, setDirector] = useState('');
   const [anio, setAnio] = useState('');
   const [genero, setGenero] = useState('');
   const [rating, setRating] = useState('');
   const [tipo, setTipo] = useState('');
-  const [vistoInicial, setVistoInicial] = useState(false);
+  const [agregarPorVer, setAgregarPorVer] = useState(true); 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,18 +26,21 @@ const FormularioItem = ({ onAgregar, onCancelar }) => {
       genero,
       rating: parseFloat(rating),
       tipo,
-      visto: vistoInicial,
     };
 
-    onAgregar(nuevoItem); 
-    onCancelar(); 
+    if (agregarPorVer) {
+      onAgregarPorVer(nuevoItem);
+    } else {
+      onAgregarVista(nuevoItem);
+    }
+
     setTitulo('');
     setDirector('');
     setAnio('');
     setGenero('');
     setRating('');
     setTipo('');
-    setVistoInicial(false);
+    setAgregarPorVer(true); 
   };
 
   return (
@@ -67,16 +70,16 @@ const FormularioItem = ({ onAgregar, onCancelar }) => {
         <label>
           <input
             type="checkbox"
-            checked={!vistoInicial}
-            onChange={() => setVistoInicial(!vistoInicial)}
+            checked={agregarPorVer}
+            onChange={() => setAgregarPorVer(true)}
           />
           Agregar película por ver
         </label>
         <label>
           <input
             type="checkbox"
-            checked={vistoInicial}
-            onChange={() => setVistoInicial(!vistoInicial)}
+            checked={!agregarPorVer}
+            onChange={() => setAgregarPorVer(false)}
           />
           Agregar película vista
         </label>
