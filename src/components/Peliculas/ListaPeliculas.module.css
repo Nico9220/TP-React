@@ -1,0 +1,77 @@
+.tabla-peliculas {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .tabla-peliculas th, .tabla-peliculas td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .tabla-peliculas th {
+    background-color: #f2f2f2;
+  }
+  
+  .acciones-tabla {
+    white-space: nowrap;
+  }
+  
+  .boton-por-ver, .boton-vista {
+    margin-right: 5px;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8em;
+  }
+  
+  .boton-por-ver {
+    background-color: #6c757d; /* Gris */
+    color: white;
+  }
+  
+  .boton-vista {
+    background-color: #28a745; /* Verde */
+    color: white;
+  }
+  
+  .boton-por-ver:hover {
+    background-color: #5a6268;
+  }
+  
+  .boton-vista:hover {
+    background-color: #218838;
+  }
+
+  .paginacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+  }
+  
+  .boton-pagina, .pagina-numero, .pagina-actual {
+    padding: 8px 12px;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: white;
+    color: #333;
+  }
+  
+  .boton-pagina:hover, .pagina-numero:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .pagina-actual {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+  
+  .boton-pagina:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }

@@ -1,0 +1,27 @@
+.contenedor-peliculas {
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px; /* O el margen que necesites */
+  }
+  
+  .cabecera-peliculas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .boton-agregar {
+    background-color: #007bff; /* Azul */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 0.9em; /* Más chico */
+    cursor: pointer;
+  }
+  
+  .boton-agregar:hover {
+    background-color: #0056b3;
+  }

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Titulo from '../../components/Titulo/Titulo';
 import FormularioItem from '../../components/FormularioItem/FormularioItem';
 import ListaItems from '../../components/ListaItems/ListaItems';
-
+import Peliculas from '../../components/Peliculas/Peliculas';
 const Home = () => {
   const [porVer, setPorVer] = useState([]);
   const [vistas, setVistas] = useState([]);
@@ -22,7 +22,7 @@ const Home = () => {
   return (
     <div>
       <Titulo texto="🎬 Gestor de Películas y Series" />
-      <FormularioItem onAgregar={handleAgregar} />
+      <Peliculas/>
       <ListaItems titulo="📺 Por ver" items={porVer} onMarcarVista={marcarComoVista} />
       <ListaItems titulo="✅ Vistas" items={vistas} />
     </div>

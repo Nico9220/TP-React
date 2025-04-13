@@ -1,0 +1,411 @@
+[
+    {
+      "id": 1744800142000,
+      "titulo": "El Padrino",
+      "director": "Francis Ford Coppola",
+      "anio": 1972,
+      "genero": ["Crimen", "Drama"],
+      "rating": 9.2,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142001,
+      "titulo": "Ciudadano Kane",
+      "director": "Orson Welles",
+      "anio": 1941,
+      "genero": ["Drama", "Misterio"],
+      "rating": 8.3,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142002,
+      "titulo": "Casablanca",
+      "director": "Michael Curtiz",
+      "anio": 1942,
+      "genero": ["Drama", "Romance", "Guerra"],
+      "rating": 8.5,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142003,
+      "titulo": "El Padrino: Parte II",
+      "director": "Francis Ford Coppola",
+      "anio": 1974,
+      "genero": ["Crimen", "Drama"],
+      "rating": 9.0,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142004,
+      "titulo": "Pulp Fiction",
+      "director": "Quentin Tarantino",
+      "anio": 1994,
+      "genero": ["Crimen", "Drama"],
+      "rating": 8.9,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142005,
+      "titulo": "La lista de Schindler",
+      "director": "Steven Spielberg",
+      "anio": 1993,
+      "genero": ["Drama", "Historia", "Guerra"],
+      "rating": 9.0,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142006,
+      "titulo": "El Señor de los Anillos: El Retorno del Rey",
+      "director": "Peter Jackson",
+      "anio": 2003,
+      "genero": ["Aventura", "Drama", "Fantasía"],
+      "rating": 9.0,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142007,
+      "titulo": "12 hombres en pugna",
+      "director": "Sidney Lumet",
+      "anio": 1957,
+      "genero": ["Drama"],
+      "rating": 9.0,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142008,
+      "titulo": "El bueno, el malo y el feo",
+      "director": "Sergio Leone",
+      "anio": 1966,
+      "genero": ["Western"],
+      "rating": 8.8,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142009,
+      "titulo": "Forrest Gump",
+      "director": "Robert Zemeckis",
+      "anio": 1994,
+      "genero": ["Comedia", "Drama", "Romance"],
+      "rating": 8.8,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142010,
+      "titulo": "El Imperio contraataca",
+      "director": "Irvin Kershner",
+      "anio": 1980,
+      "genero": ["Acción", "Aventura", "Ciencia ficción"],
+      "rating": 8.7,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142011,
+      "titulo": "El club de la pelea",
+      "director": "David Fincher",
+      "anio": 1999,
+      "genero": ["Drama"],
+      "rating": 8.8,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142012,
+      "titulo": "Origen",
+      "director": "Christopher Nolan",
+      "anio": 2010,
+      "genero": ["Acción", "Aventura", "Ciencia ficción"],
+      "rating": 8.8,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142013,
+      "titulo": "Buenos muchachos",
+      "director": "Martin Scorsese",
+      "anio": 1990,
+      "genero": ["Crimen", "Drama"],
+      "rating": 8.7,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142014,
+      "titulo": "Volver al futuro",
+      "director": "Robert Zemeckis",
+      "anio": 1985,
+      "genero": ["Aventura", "Comedia", "Ciencia ficción"],
+      "rating": 8.5,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142015,
+      "titulo": "Psicosis",
+      "director": "Alfred Hitchcock",
+      "anio": 1960,
+      "genero": ["Terror", "Misterio", "Thriller"],
+      "rating": 8.5,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142016,
+      "titulo": "El silencio de los inocentes",
+      "director": "Jonathan Demme",
+      "anio": 1991,
+      "genero": ["Crimen", "Drama", "Terror"],
+      "rating": 8.6,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142017,
+      "titulo": "La vida es bella",
+      "director": "Roberto Benigni",
+      "anio": 1997,
+      "genero": ["Comedia", "Drama", "Guerra"],
+      "rating": 8.6,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142018,
+      "titulo": "Seven",
+      "director": "David Fincher",
+      "anio": 1995,
+      "genero": ["Crimen", "Misterio", "Thriller"],
+      "rating": 8.6,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142019,
+      "titulo": "Los siete samuráis",
+      "director": "Akira Kurosawa",
+      "anio": 1954,
+      "genero": ["Acción", "Aventura", "Drama"],
+      "rating": 8.6,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142020,
+      "titulo": "Parasite",
+      "director": "Bong Joon-ho",
+      "anio": 2019,
+      "genero": ["Comedia", "Drama", "Thriller"],
+      "rating": 8.6,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142021,
+      "titulo": "El Rey León",
+      "director": "Roger Allers, Rob Minkoff",
+      "anio": 1994,
+      "genero": ["Animación", "Aventura", "Drama"],
+      "rating": 8.5,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142022,
+      "titulo": "Cadena perpetua",
+      "director": "Frank Darabont",
+      "anio": 1994,
+      "genero": ["Drama"],
+      "rating": 9.3,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142023,
+      "titulo": "Interestelar",
+      "director": "Christopher Nolan",
+      "anio": 2014,
+      "genero": ["Aventura", "Drama", "Ciencia ficción"],
+      "rating": 8.6,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142024,
+      "titulo": "El Resplandor",
+      "director": "Stanley Kubrick",
+      "anio": 1980,
+      "genero": ["Drama", "Terror"],
+      "rating": 8.4,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142025,
+      "titulo": "Alien, el octavo pasajero",
+      "director": "Ridley Scott",
+      "anio": 1979,
+      "genero": ["Terror", "Ciencia ficción"],
+      "rating": 8.1,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142026,
+      "titulo": "Taxi Driver",
+      "director": "Martin Scorsese",
+      "anio": 1976,
+      "genero": ["Crimen", "Drama"],
+      "rating": 8.2,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142027,
+      "titulo": "Apocalypse Now",
+      "director": "Francis Ford Coppola",
+      "anio": 1979,
+      "genero": ["Drama", "Guerra"],
+      "rating": 8.4,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142028,
+      "titulo": "Blade Runner",
+      "director": "Ridley Scott",
+      "anio": 1982,
+      "genero": ["Ciencia ficción", "Thriller"],
+      "rating": 8.1,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142029,
+      "titulo": "La naranja mecánica",
+      "director": "Stanley Kubrick",
+      "anio": 1971,
+      "genero": ["Crimen", "Drama", "Ciencia ficción"],
+      "rating": 8.3,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142030,
+      "titulo": "2001: Una odisea del espacio",
+      "director": "Stanley Kubrick",
+      "anio": 1968,
+      "genero": ["Ciencia ficción", "Misterio"],
+      "rating": 8.3,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142031,
+      "titulo": "Sospechosos habituales",
+      "director": "Bryan Singer",
+      "anio": 1995,
+      "genero": ["Crimen", "Misterio", "Thriller"],
+      "rating": 8.6,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142032,
+      "titulo": "El gran Lebowski",
+      "director": "Joel Coen, Ethan Coen",
+      "anio": 1998,
+      "genero": ["Comedia", "Crimen"],
+      "rating": 8.1,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142033,
+      "titulo": "Toy Story",
+      "director": "John Lasseter",
+      "anio": 1995,
+      "genero": ["Animación", "Aventura", "Comedia"],
+      "rating": 8.3,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142034,
+      "titulo": "La princesa Mononoke",
+      "director": "Hayao Miyazaki",
+      "anio": 1997,
+      "genero": ["Animación", "Aventura", "Fantasía"],
+      "rating": 8.4,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142035,
+      "titulo": "Ojos bien cerrados",
+      "director": "Stanley Kubrick",
+      "anio": 1999,
+      "genero": ["Drama", "Misterio", "Thriller"],
+      "rating": 7.5,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142036,
+      "titulo": "El séptimo sello",
+      "director": "Ingmar Bergman",
+      "anio": 1957,
+      "genero": ["Drama", "Fantasía"],
+      "rating": 8.2,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142037,
+      "titulo": "Rashomon",
+      "director": "Akira Kurosawa",
+      "anio": 1950,
+      "genero": ["Crimen", "Drama", "Misterio"],
+      "rating": 8.2,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142038,
+      "titulo": "Lawrence de Arabia",
+      "director": "David Lean",
+      "anio": 1962,
+      "genero": ["Aventura", "Drama", "Historia"],
+      "rating": 8.3,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142039,
+      "titulo": "Un perro andaluz",
+      "director": "Luis Buñuel, Salvador Dalí",
+      "anio": 1929,
+      "genero": ["Cortometraje", "Surrealismo"],
+      "rating": 7.2,
+      "tipo": "pelicula",
+      "visto": false
+    },
+    {
+      "id": 1744800142040,
+      "titulo": "Metrópolis",
+      "director": "Fritz Lang",
+      "anio": 1927,
+      "genero": ["Ciencia ficción", "Drama"],
+      "rating": 8.1,
+      "tipo": "pelicula",
+      "visto": false
+    }]
