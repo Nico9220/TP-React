@@ -1,10 +1,10 @@
-import { useState,useEffect  } from 'react';
+import { useState, useEffect } from 'react';
 import Titulo from '../../components/Titulo/Titulo';
-import FormularioItem from '../../components/FormularioItem/FormularioItem';
-import ListaItems from '../../components/ListaItems/ListaItems';
 import Peliculas from '../../components/Peliculas/Peliculas';
+import ListaItems from '../../components/ListaItems/ListaItems';
+import peliculasIndispensables from '../../../data/pelis.json'; 
 import styles from './Home.module.css';
-
+import Menu from '../../components/Menu/Menu';
 const LOCAL_STORAGE_POR_VER_KEY = 'peliculasPorVer';
 const LOCAL_STORAGE_VISTAS_KEY = 'peliculasVistas';
 
@@ -18,10 +18,27 @@ const Home = () => {
     return storedVistas ? JSON.parse(storedVistas) : [];
   });
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
+  const [peliculasPorGenero, setPeliculasPorGenero] = useState({}); 
+
+  useEffect(() => {
+    const initialPeliculas = peliculasIndispensables;
+
+    const grouped = {};
+    initialPeliculas.forEach(pelicula => {
+      pelicula.genero.forEach(genero => {
+        if (!grouped[genero]) {
+          grouped[genero] = [];
+        }
+        grouped[genero].push(pelicula);
+      });
+    });
+    setPeliculasPorGenero(grouped);
+  }, [porVer, vistas]); 
 
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_POR_VER_KEY, JSON.stringify(porVer));
   }, [porVer]);
+
 
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_VISTAS_KEY, JSON.stringify(vistas));
@@ -29,12 +46,10 @@ const Home = () => {
 
   const handleAgregarPorVer = (nuevoItem) => {
     setPorVer([...porVer, { ...nuevoItem, visto: false }]);
-    setMostrarFormulario(false);
   };
 
   const handleAgregarVista = (nuevoItem) => {
     setVistas([...vistas, { ...nuevoItem, visto: true }]);
-    setMostrarFormulario(false);
   };
 
   const handleMostrarFormulario = () => {
@@ -55,7 +70,13 @@ const Home = () => {
 
   return (
     <div>
-      <Titulo texto="🎬 Gestor de Películas y Series" />
+      <div>
+      <Titulo texto="Cine" />
+      </div>
+      <div className={styles.Menu}>
+        <Menu />
+      </div>
+      <div className={styles.Contenido}>
       <Peliculas
         onAgregarPorVer={handleAgregarPorVer}
         onAgregarVista={handleAgregarVista}
@@ -63,8 +84,7 @@ const Home = () => {
         onMostrarFormulario={handleMostrarFormulario}
         onCancelarFormulario={handleCancelarFormulario}
       />
-      <ListaItems titulo="📺 Por ver" items={porVer} onMarcarVista={marcarComoVista} />
-      <ListaItems titulo="✅ Vistas" items={vistas} />
+      </div>
     </div>
   );
 };

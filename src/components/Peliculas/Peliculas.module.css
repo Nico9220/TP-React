@@ -1,18 +1,19 @@
-.contenedor-peliculas {
+.contenedorpeliculas {
     border: 2px solid white;
     border-radius: 10px;
     padding: 20px;
-    margin-bottom: 20px; /* O el margen que necesites */
+    margin-bottom: 20px;
+    width: 80%;
   }
   
-  .cabecera-peliculas {
+  .cabecerapeliculas {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
   }
   
-  .boton-agregar {
+  .botonagregar {
     background-color: #007bff; /* Azul */
     color: white;
     border: none;
@@ -22,6 +23,6 @@
     cursor: pointer;
   }
   
-  .boton-agregar:hover {
+  .botonagregar:hover {
     background-color: #0056b3;
   }

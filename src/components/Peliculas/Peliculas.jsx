@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import FormularioItem from '../../components/FormularioItem/FormularioItem';
 import ListaPeliculas from './ListaPeliculas';
-import './Peliculas.module.css';
+import styles from './Peliculas.module.css';
 import peliculasIndispensables from '../../../data/pelis.json';
 
 const Peliculas = ({ onAgregarPorVer, onAgregarVista, mostrarFormulario, onMostrarFormulario, onCancelarFormulario }) => {
   return (
-    <div className="contenedor-peliculas">
-      <div className="cabecera-peliculas">
+    <div className={styles.contenedorpeliculas}>
+      <div className={styles.cabecerapeliculas}>
         <h2>Películas</h2>
         {!mostrarFormulario && (
-          <button className="boton-agregar" onClick={onMostrarFormulario}>
+          <button className={styles.botonagregar} onClick={onMostrarFormulario}>
             + Agregar
           </button>
         )}

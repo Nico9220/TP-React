@@ -1,3 +1,19 @@
+body {
+    background-image: url("../../resources/fondo.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 ul {
     list-style-type: none;
+}
+
+.Menu {
+    float: left;
+    width: 19%;
+}
+
+.Contenido {
+    float: right;
+    width: 80%;
 }
