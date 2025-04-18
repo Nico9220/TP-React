@@ -7,7 +7,8 @@
       "genero": ["Crimen", "Drama"],
       "rating": 9.2,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": "https://http2.mlstatic.com/D_NQ_NP_775408-MLA74673472960_022024-B.webp"
     },
     {
       "id": 1744800142001,
@@ -17,7 +18,8 @@
       "genero": ["Drama", "Misterio"],
       "rating": 8.3,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": "https://m.media-amazon.com/images/S/pv-target-images/3891f09697d76f1be237b1f2b2583d2c223679894f22f9661f0fa2a99f31ce4e.jpg"
     },
     {
       "id": 1744800142002,
@@ -27,7 +29,8 @@
       "genero": ["Drama", "Romance", "Guerra"],
       "rating": 8.5,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHohhvmi8vJLkV1RfSgCa033KqU188Pt-DwQ&s"
     },
     {
       "id": 1744800142003,
@@ -37,7 +40,8 @@
       "genero": ["Crimen", "Drama"],
       "rating": 9.0,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": "https://images.justwatch.com/backdrop/268371554/s640/el-padrino-parte-ii"
     },
     {
       "id": 1744800142004,
@@ -47,7 +51,8 @@
       "genero": ["Crimen", "Drama"],
       "rating": 8.9,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsAN4MO1JDkjeAcXD0JonPqevOkQcZet6Ruw&s"
     },
     {
       "id": 1744800142005,
@@ -57,7 +62,8 @@
       "genero": ["Drama", "Historia", "Guerra"],
       "rating": 9.0,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": "https://statics.diariomendoza.com.ar/2023/11/6567cb9d043e6.jpeg"
     },
     {
       "id": 1744800142006,
@@ -67,7 +73,8 @@
       "genero": ["Aventura", "Drama", "Fantasía"],
       "rating": 9.0,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT1svVNb5EkpWNA6hNO6X5NCkORJQ5QeKqbg&s"
     },
     {
       "id": 1744800142007,
@@ -77,7 +84,8 @@
       "genero": ["Drama"],
       "rating": 9.0,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": "https://m.media-amazon.com/images/S/pv-target-images/b92d2865829416e35e7102a3934a2ee745f3b903a95678710442d4299d86f39c._SX1080_FMjpg_.jpg"
     },
     {
       "id": 1744800142008,
@@ -87,7 +95,8 @@
       "genero": ["Western"],
       "rating": 8.8,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs128dEwnYdXVmWc80mTOTVb53l7YPdvkNYA&s"
     },
     {
       "id": 1744800142009,
@@ -97,7 +106,8 @@
       "genero": ["Comedia", "Drama", "Romance"],
       "rating": 8.8,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": "https://occ-0-8407-92.1.nflxso.net/dnm/api/v6/Z-WHgqd_TeJxSuha8aZ5WpyLcX8/AAAABRR-KPhap9I35xx200E3pEEN9jYLl-9tQu-PZfEYW5mr18N6CANcL3VePgOTDlYaW8Ztb6dBrcElgjUb1mmoEO48JoisbdN5ImNe.jpg?r=f45"
     },
     {
       "id": 1744800142010,
@@ -107,7 +117,8 @@
       "genero": ["Acción", "Aventura", "Ciencia ficción"],
       "rating": 8.7,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_JaEIPz2K1ESWc2In5aZ5sjfWEO_JGUc36g&s"
     },
     {
       "id": 1744800142011,
@@ -117,7 +128,8 @@
       "genero": ["Drama"],
       "rating": 8.8,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": "https://www.clarin.com/2024/10/17/xm6BD1Bi7_720x0__1.jpg"
     },
     {
       "id": 1744800142012,
@@ -127,7 +139,8 @@
       "genero": ["Acción", "Aventura", "Ciencia ficción"],
       "rating": 8.8,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": "https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2014/06/345894-cine-ciencia-ficcion-critica-origen.jpg?tf=3840x"
     },
     {
       "id": 1744800142013,
@@ -137,7 +150,8 @@
       "genero": ["Crimen", "Drama"],
       "rating": 8.7,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": "https://m.media-amazon.com/images/S/pv-target-images/d9d5491a8b7a06ba291367a908cd3354d397c4aae74b170f0efdb438cfe220a1.jpg"
     },
     {
       "id": 1744800142014,
@@ -147,7 +161,8 @@
       "genero": ["Aventura", "Comedia", "Ciencia ficción"],
       "rating": 8.5,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNiuFjNSOBwOV6ZPg0nSpoPxUtviP1Fu4hdw&s"
     },
     {
       "id": 1744800142015,
@@ -157,7 +172,8 @@
       "genero": ["Terror", "Misterio", "Thriller"],
       "rating": 8.5,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv84o7f1X70ipaHSZVO7ST1tAwbqCNfOw9wA&s"
     },
     {
       "id": 1744800142016,
@@ -167,7 +183,8 @@
       "genero": ["Crimen", "Drama", "Terror"],
       "rating": 8.6,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPAeSALX-onyq8HLmP3-fDcgGeE9g515EXuA&s"
     },
     {
       "id": 1744800142017,
@@ -177,7 +194,8 @@
       "genero": ["Comedia", "Drama", "Guerra"],
       "rating": 8.6,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGoXeB6PGKX7-Ji3eMhNUDZeWAj5blDusjng&s"
     },
     {
       "id": 1744800142018,
@@ -187,7 +205,8 @@
       "genero": ["Crimen", "Misterio", "Thriller"],
       "rating": 8.6,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": "https://m.media-amazon.com/images/S/pv-target-images/58a5dcd933273e1d076efb291cd1cd09e90d3bc7cdcfc301ef7a79270313a134.jpg"
     },
     {
       "id": 1744800142019,
@@ -197,7 +216,8 @@
       "genero": ["Acción", "Aventura", "Drama"],
       "rating": 8.6,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": "https://static.filmin.es/images/es/media/5656/1/still_0_3_1920x1080.webp"
     },
     {
       "id": 1744800142020,
@@ -207,7 +227,8 @@
       "genero": ["Comedia", "Drama", "Thriller"],
       "rating": 8.6,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCjSW519is4r04yFmlj4nidRcpa1VHGoYMrQ&s"
     },
     {
       "id": 1744800142021,
@@ -217,7 +238,8 @@
       "genero": ["Animación", "Aventura", "Drama"],
       "rating": 8.5,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": "https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/3D8AB394E8AF65A82D0334C0D62036AFCD719A22C181110F042984363C46E139/scale?width=1200&aspectRatio=1.78&format=webp"
     },
     {
       "id": 1744800142022,
@@ -227,7 +249,8 @@
       "genero": ["Drama"],
       "rating": 9.3,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": "https://img.europapress.es/fotoweb/fotonoticia_20141024083548_1200.jpg"
     },
     {
       "id": 1744800142023,
@@ -237,7 +260,8 @@
       "genero": ["Aventura", "Drama", "Ciencia ficción"],
       "rating": 8.6,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": "https://m.media-amazon.com/images/S/pv-target-images/8698aa0aa73e5acae0d4ec7fd46e6be40e7b9bd14668ce6d8694ae7442d2a722.jpg"
     },
     {
       "id": 1744800142024,
@@ -247,7 +271,8 @@
       "genero": ["Drama", "Terror"],
       "rating": 8.4,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA4fXfnX5I5Bscgh8qzrOWsYyoRn3b3HTjFg&s"
     },
     {
       "id": 1744800142025,
@@ -257,7 +282,8 @@
       "genero": ["Terror", "Ciencia ficción"],
       "rating": 8.1,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": ""
     },
     {
       "id": 1744800142026,
@@ -267,7 +293,8 @@
       "genero": ["Crimen", "Drama"],
       "rating": 8.2,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": ""
     },
     {
       "id": 1744800142027,
@@ -277,7 +304,8 @@
       "genero": ["Drama", "Guerra"],
       "rating": 8.4,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": ""
     },
     {
       "id": 1744800142028,
@@ -287,7 +315,8 @@
       "genero": ["Ciencia ficción", "Thriller"],
       "rating": 8.1,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": ""
     },
     {
       "id": 1744800142029,
@@ -297,7 +326,8 @@
       "genero": ["Crimen", "Drama", "Ciencia ficción"],
       "rating": 8.3,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": ""
     },
     {
       "id": 1744800142030,
@@ -307,7 +337,8 @@
       "genero": ["Ciencia ficción", "Misterio"],
       "rating": 8.3,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": ""
     },
     {
       "id": 1744800142031,
@@ -317,7 +348,8 @@
       "genero": ["Crimen", "Misterio", "Thriller"],
       "rating": 8.6,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": ""
     },
     {
       "id": 1744800142032,
@@ -327,7 +359,8 @@
       "genero": ["Comedia", "Crimen"],
       "rating": 8.1,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": ""
     },
     {
       "id": 1744800142033,
@@ -337,7 +370,8 @@
       "genero": ["Animación", "Aventura", "Comedia"],
       "rating": 8.3,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": ""
     },
     {
       "id": 1744800142034,
@@ -347,7 +381,8 @@
       "genero": ["Animación", "Aventura", "Fantasía"],
       "rating": 8.4,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": ""
     },
     {
       "id": 1744800142035,
@@ -357,7 +392,8 @@
       "genero": ["Drama", "Misterio", "Thriller"],
       "rating": 7.5,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": ""
     },
     {
       "id": 1744800142036,
@@ -367,7 +403,8 @@
       "genero": ["Drama", "Fantasía"],
       "rating": 8.2,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": ""
     },
     {
       "id": 1744800142037,
@@ -377,7 +414,8 @@
       "genero": ["Crimen", "Drama", "Misterio"],
       "rating": 8.2,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": ""
     },
     {
       "id": 1744800142038,
@@ -387,7 +425,8 @@
       "genero": ["Aventura", "Drama", "Historia"],
       "rating": 8.3,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": ""
     },
     {
       "id": 1744800142039,
@@ -397,7 +436,8 @@
       "genero": ["Cortometraje", "Surrealismo"],
       "rating": 7.2,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": ""
     },
     {
       "id": 1744800142040,
@@ -407,5 +447,6 @@
       "genero": ["Ciencia ficción", "Drama"],
       "rating": 8.1,
       "tipo": "pelicula",
-      "visto": false
+      "visto": false,
+      "imagen": ""
     }]

@@ -24,16 +24,19 @@ const Home = () => {
 
   // Cargar películas por defecto si no hay nada
   useEffect(() => {
-    if (porVer.length === 0 && vistas.length === 0) {
-      const peliculasIniciales = peliculasIndispensables.map(p => ({
-        ...p,
-        id: Date.now() + Math.random(), // ID único
-        visto: false
-      }));
-      setPorVer(peliculasIniciales);
-      console.log("Cargadas por defecto:", peliculasIniciales);
-    }
+    //  Siempre borrar localStorage para que se muestren las nuevas imagenes cargadas en el json (modo desarrollo, cambiar esto cuando se traigan por API)
+    localStorage.removeItem(LOCAL_STORAGE_POR_VER_KEY);
+    localStorage.removeItem(LOCAL_STORAGE_VISTAS_KEY);
+  
+    const peliculasIniciales = peliculasIndispensables.map(p => ({
+      ...p,
+      id: Date.now() + Math.random(), // ID único
+      visto: false
+    }));
+    setPorVer(peliculasIniciales);
+    console.log("Cargadas por defecto:", peliculasIniciales);
   }, []);
+  
 
   // Agrupar por género (no lo estamos usando aún, pero lo dejamos listo)
   useEffect(() => {
