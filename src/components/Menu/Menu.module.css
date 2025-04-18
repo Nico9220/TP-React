@@ -8,6 +8,9 @@
   justify-content: space-around;
   gap: 10px;
   box-sizing: border-box;
+  position:fixed;
+	z-index:1000;
+	top:0;
 }
 
 .menuitem {
@@ -33,5 +36,4 @@
 .menuitem img:hover {
   filter: brightness(1.2) grayscale(0%) invert(80%);
   box-shadow: 0 0 6px rgba(0, 0, 0, 3);
-
 }

@@ -1,5 +1,5 @@
 import CardPelicula from '../CardPelicula/CardPelicula';
-import FormularioItem from '../../components/FormularioItem/FormularioItem';
+import FormularioItem from '../FormularioItem/FormularioItem';
 import styles from './Peliculas.module.css';
 
 const Peliculas = ({

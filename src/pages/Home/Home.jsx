@@ -5,7 +5,7 @@ import peliculasIndispensables from '../../../data/pelis.json';
 import styles from './Home.module.css';
 import Menu from '../../components/Menu/Menu';
 import PeliculasPorGenero from '../../components/Peliculas/PeliculasPorGenero';
-
+import PeliculasVistas from '../../components/Peliculas/PeliculasVistas';
 
 const LOCAL_STORAGE_POR_VER_KEY = 'peliculasPorVer';
 const LOCAL_STORAGE_VISTAS_KEY = 'peliculasVistas';
@@ -95,11 +95,13 @@ const Home = () => {
       </div>
 
       <div className={styles.Contenido}>
-  <PeliculasPorGenero
-    peliculasPorGenero={peliculasPorGenero}
-    onMarcarVista={marcarComoVista}
-  />
-</div>
+        <PeliculasPorGenero
+          peliculasPorGenero={peliculasPorGenero}
+          onMarcarVista={marcarComoVista}
+        />
+        {/*<PeliculasVistas 
+          peliculasVistas = {vistas}/>*/}
+      </div>
 
     </div>
   );
