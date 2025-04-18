@@ -4,6 +4,8 @@ import Peliculas from '../../components/Peliculas/Peliculas';
 import peliculasIndispensables from '../../../data/pelis.json'; 
 import styles from './Home.module.css';
 import Menu from '../../components/Menu/Menu';
+import PeliculasPorGenero from '../../components/Peliculas/PeliculasPorGenero';
+
 
 const LOCAL_STORAGE_POR_VER_KEY = 'peliculasPorVer';
 const LOCAL_STORAGE_VISTAS_KEY = 'peliculasVistas';
@@ -93,17 +95,12 @@ const Home = () => {
       </div>
 
       <div className={styles.Contenido}>
-      <Peliculas
-  items={porVer}
-  vistas={vistas} // 👈 nueva prop
-  onAgregarPorVer={handleAgregarPorVer}
-  onAgregarVista={handleAgregarVista}
-  mostrarFormulario={mostrarFormulario}
-  onMostrarFormulario={handleMostrarFormulario}
-  onCancelarFormulario={handleCancelarFormulario}
-  onMarcarVista={marcarComoVista}
-/>
-      </div>
+  <PeliculasPorGenero
+    peliculasPorGenero={peliculasPorGenero}
+    onMarcarVista={marcarComoVista}
+  />
+</div>
+
     </div>
   );
 };
