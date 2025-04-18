@@ -13,7 +13,12 @@ return (
 
     {!item.visto && (
   <button className={styles.boton} onClick={() => onMarcarVista(item.id)}>
-    Marcar como vista
+    Marcar "Vista"
+  </button>
+)}
+{!item.porVer && (
+  <button className={styles.boton} onClick={() => onMarcarVista(item.id)}>
+    Marcar "Por ver"
   </button>
 )}
     </div>
