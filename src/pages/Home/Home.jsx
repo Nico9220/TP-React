@@ -118,25 +118,11 @@ const Home = () => {
       </div>
 
       <div className={styles.Contenido}>
-        <PeliculasPorGenero
-          peliculasPorGenero={peliculasPorGenero}
-          onMarcarVista={marcarComoVista}
-        />
-        <Peliculas
-  items={porVer}
-  vistas={vistas}
-  mostrarFormulario={mostrarFormulario}
-  onMostrarFormulario={handleMostrarFormulario}
-  onCancelarFormulario={() => {
-    setMostrarFormulario(false);
-    setItemEditando(null);
-  }}
-  onAgregarPorVer={handleAgregarPorVer}
-  onAgregarVista={handleAgregarVista}
+      <PeliculasPorGenero
+  peliculasPorGenero={peliculasPorGenero}
   onMarcarVista={marcarComoVista}
+  onMarcarPorVer={handleAgregarPorVer}
   onEditar={handleEditar}
-  onEditarConfirmado={handleEditarConfirmado}
-  itemEditando={itemEditando}
 />
 
         {/*<PeliculasVistas 

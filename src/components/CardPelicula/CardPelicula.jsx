@@ -1,6 +1,6 @@
 import styles from './CardPelicula.module.css';
 
-const CardPelicula = ({ item, onMarcarVista, onEditar }) => {
+const CardPelicula = ({ item, onMarcarVista, onMarcarPorVer = () => {}, onEditar }) => {
   return (
     <div className={styles.card}>
       <img src={item.imagen} alt={item.titulo} className={styles.imagen} />
@@ -11,17 +11,39 @@ const CardPelicula = ({ item, onMarcarVista, onEditar }) => {
       <p><strong>Rating:</strong> ⭐ {item.rating}</p>
       <p><strong>Tipo:</strong> {item.tipo}</p>
 
-      {!item.visto && (
-        <button className={styles.boton} onClick={() => onMarcarVista(item.id)}>
-          Marcar "Vista"
-        </button>
-      )}
+      <button
+  className={styles.boton}
+  onClick={(e) => {
+    e.preventDefault(); // 👈 importante
+    e.stopPropagation(); // 👈 esto evita que se dispare el cierre del modal
+    onMarcarVista(item.id); // o la acción que quieras
+  }}
+>
+  Marcar "Vista"
+</button>
 
-      {onEditar && (
-        <button className={styles.boton} onClick={() => onEditar(item)}>
-          Editar
+<button
+          className={styles.boton}
+          onClick={(e) => {
+            e.stopPropagation();
+            onMarcarPorVer?.(item.id);
+          }}
+        >
+          Marcar "Por ver"
         </button>
-      )}
+
+
+<button
+  className={styles.boton}
+  onClick={(e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    onEditar(item);
+  }}
+>
+  Editar
+</button>
+
     </div>
   );
 };

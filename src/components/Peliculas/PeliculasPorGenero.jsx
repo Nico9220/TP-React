@@ -6,10 +6,14 @@ import CardPelicula from '../CardPelicula/CardPelicula';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-
 Modal.setAppElement('#root');
 
-const PeliculasPorGenero = ({ peliculasPorGenero }) => {
+const PeliculasPorGenero = ({
+  peliculasPorGenero,
+  onMarcarVista,
+  onEditar,
+  onMarcarPorVer
+}) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [peliculaSeleccionada, setPeliculaSeleccionada] = useState(null);
 
@@ -70,16 +74,31 @@ const PeliculasPorGenero = ({ peliculasPorGenero }) => {
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={cerrarModal}
+        shouldCloseOnOverlayClick={true}
         className={styles.modal}
         overlayClassName={styles.overlay}
       >
-        {peliculaSeleccionada && (
-          <CardPelicula item={peliculaSeleccionada} onMarcarVista={() => {}} />
-        )}
-        <button onClick={cerrarModal} className={styles.botonCerrar}>Cerrar</button>
+        <div className={styles.cardContainer}>
+          {peliculaSeleccionada && (
+            <CardPelicula
+              item={peliculaSeleccionada}
+              onMarcarVista={(id) => {
+                onMarcarVista(id);
+              }}
+              onMarcarPorVer={(id) => {
+                onMarcarPorVer(id);
+              }}
+              onEditar={(item) => {
+                onEditar(item);
+              }}
+            />
+          )}
+          <button onClick={cerrarModal} className={styles.botonCerrar}>Cerrar</button>
+        </div>
       </Modal>
     </div>
   );
 };
 
 export default PeliculasPorGenero;
+
