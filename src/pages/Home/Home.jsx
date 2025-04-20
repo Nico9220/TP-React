@@ -36,7 +36,6 @@ const Home = () => {
       visto: false
     }));
     setPorVer(peliculasIniciales);
-    console.log("Cargadas por defecto:", peliculasIniciales);
   }, []);
   
 
@@ -86,6 +85,30 @@ const Home = () => {
     setPorVer(porVer.filter((item) => item.id !== id));
   };
 
+  // EDitarr
+
+  const [itemEditando, setItemEditando] = useState(null);
+
+  const handleEditar = (item) => {
+    setItemEditando(item);
+    setMostrarFormulario(true);
+  };
+
+  const handleEditarConfirmado = (itemEditado) => {
+    if (itemEditado.visto) {
+      // editar en vistas
+      setVistas(vistas.map(p => p.id === itemEditado.id ? itemEditado : p));
+    } else {
+      // editar en porVer
+      setPorVer(porVer.map(p => p.id === itemEditado.id ? itemEditado : p));
+    }
+  
+    setItemEditando(null);
+    setMostrarFormulario(false);
+  };
+  
+  
+
   return (
     <div>
       <Titulo texto="Cine" />
@@ -99,6 +122,23 @@ const Home = () => {
           peliculasPorGenero={peliculasPorGenero}
           onMarcarVista={marcarComoVista}
         />
+        <Peliculas
+  items={porVer}
+  vistas={vistas}
+  mostrarFormulario={mostrarFormulario}
+  onMostrarFormulario={handleMostrarFormulario}
+  onCancelarFormulario={() => {
+    setMostrarFormulario(false);
+    setItemEditando(null);
+  }}
+  onAgregarPorVer={handleAgregarPorVer}
+  onAgregarVista={handleAgregarVista}
+  onMarcarVista={marcarComoVista}
+  onEditar={handleEditar}
+  onEditarConfirmado={handleEditarConfirmado}
+  itemEditando={itemEditando}
+/>
+
         {/*<PeliculasVistas 
           peliculasVistas = {vistas}/>*/}
       </div>

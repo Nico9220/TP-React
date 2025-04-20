@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './FormularioItem.module.css';
 
-const FormularioItem = ({ onAgregarPorVer, onAgregarVista, onCancelar }) => {
+const FormularioItem = ({ onAgregarPorVer, onAgregarVista, onCancelar, itemEditando, onEditarConfirmado }) => {
   const [titulo, setTitulo] = useState('');
   const [director, setDirector] = useState('');
   const [anio, setAnio] = useState('');
@@ -9,6 +9,20 @@ const FormularioItem = ({ onAgregarPorVer, onAgregarVista, onCancelar }) => {
   const [rating, setRating] = useState('');
   const [tipo, setTipo] = useState('');
   const [agregarPorVer, setAgregarPorVer] = useState(true); 
+
+  // se estamos EDITANDO, precargamos los campos
+  useEffect(() => {
+    if (itemEditando) {
+      console.log("EDITANDO:", itemEditando);
+      setTitulo(itemEditando.titulo);
+      setDirector(itemEditando.director);
+      setAnio(itemEditando.anio);
+      setGenero(itemEditando.genero);
+      setRating(itemEditando.rating);
+      setTipo(itemEditando.tipo);
+      setAgregarPorVer(!itemEditando.visto); // Si estaba vista, no es por ver
+    }
+  }, [itemEditando]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,21 +33,25 @@ const FormularioItem = ({ onAgregarPorVer, onAgregarVista, onCancelar }) => {
     }
 
     const nuevoItem = {
-      id: Date.now(),
+      id: itemEditando ? itemEditando.id : Date.now(),
       titulo,
       director,
       anio: parseInt(anio),
       genero,
       rating: parseFloat(rating),
       tipo,
+      visto: !agregarPorVer
     };
 
-    if (agregarPorVer) {
-      onAgregarPorVer(nuevoItem);
+    if (itemEditando) {
+      onEditarConfirmado(nuevoItem);
     } else {
-      onAgregarVista(nuevoItem);
+      agregarPorVer ? onAgregarPorVer(nuevoItem) : onAgregarVista(nuevoItem);
     }
 
+    onCancelar();
+
+    // Reinicia los campos
     setTitulo('');
     setDirector('');
     setAnio('');
@@ -68,25 +86,18 @@ const FormularioItem = ({ onAgregarPorVer, onAgregarVista, onCancelar }) => {
 
       <div className={styles.checkboxGroup}>
         <label>
-          <input
-            type="checkbox"
-            checked={agregarPorVer}
-            onChange={() => setAgregarPorVer(true)}
-          />
-          Agregar película por ver
+          <input type="checkbox" checked={agregarPorVer} onChange={() => setAgregarPorVer(true)} />
+          Agregar como "Por ver"
         </label>
         <label>
-          <input
-            type="checkbox"
-            checked={!agregarPorVer}
-            onChange={() => setAgregarPorVer(false)}
-          />
-          Agregar película vista
+          <input type="checkbox" checked={!agregarPorVer} onChange={() => setAgregarPorVer(false)} />
+          Agregar como "Vista"
         </label>
       </div>
 
-      <button type="submit">Agregar</button>
-      <button type="button" onClick={onCancelar}>Cancelar</button>
+      <button type="submit">{itemEditando ? 'Editar' : 'Agregar'}</button>
+
+      <button type="button" onClick={onCancelar}>{itemEditando ? 'Cancelar edición' : 'Cancelar'}</button>
     </form>
   );
 };

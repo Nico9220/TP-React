@@ -6,9 +6,19 @@
     margin: 0.5rem;
     width: 220px;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  }
-  
-  .boton {
+}
+
+.imagen {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    margin-bottom: 10px;
+}  
+
+.boton {
     margin-top: 10px;
     padding: 0.5rem 1rem;
     background-color: #007bff;
@@ -16,18 +26,8 @@
     color: white;
     border-radius: 4px;
     cursor: pointer;
-  }
-  
-  .boton:hover {
-    background-color: #0056b3;
-  }
+}
 
-  .imagen {
-    width: 100%;
-    max-height: 250px;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-  
-  
-  
+.boton:hover {
+    background-color: #0056b3;
+}

@@ -10,7 +10,11 @@ const Peliculas = ({
   onMostrarFormulario,
   onCancelarFormulario,
   mostrarFormulario,
-  onMarcarVista
+  onMarcarVista,
+  onEditar,
+  onEditarConfirmado,
+  itemEditando,
+  onEliminar // todavia no lo implemente
 }) => {
   return (
     <div className={styles.contenedorpeliculas}>
@@ -28,6 +32,8 @@ const Peliculas = ({
           onAgregarPorVer={onAgregarPorVer}
           onAgregarVista={onAgregarVista}
           onCancelar={onCancelarFormulario}
+          itemEditando={itemEditando}
+          onEditarConfirmado={onEditarConfirmado}
         />
       ) : (
         <>
@@ -38,9 +44,10 @@ const Peliculas = ({
             ) : (
               items.map((item) => (
                 <CardPelicula
-                  key={item.id}
+                key={`porver-${item.id}`}
                   item={item}
                   onMarcarVista={onMarcarVista}
+                  onEditar={onEditar}
                 />
               ))
             )}
@@ -53,9 +60,10 @@ const Peliculas = ({
             ) : (
               vistas.map((item) => (
                 <CardPelicula
-                  key={item.id}
+                key={`visto-${item.id}`}
                   item={item}
                   onMarcarVista={() => {}} // ya está vista, no hace nada
+                  onEditar={onEditar}
                 />
               ))
             )}
