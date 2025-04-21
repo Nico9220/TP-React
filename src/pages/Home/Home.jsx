@@ -8,6 +8,7 @@ import PeliculasPorGenero from '../../components/Peliculas/PeliculasPorGenero';
 import FormularioItem from '../../components/FormularioItem/FormularioItem';
 import CardPelicula from '../../components/CardPelicula/CardPelicula';
 import Modal from 'react-modal';
+import FiltrosPeliculas from '../../components/Filtros/Filtros'; 
 
 Modal.setAppElement('#root');
 
@@ -27,6 +28,9 @@ const Home = () => {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [peliculasPorGenero, setPeliculasPorGenero] = useState({});
   const [itemEditando, setItemEditando] = useState(null);
+  const [peliculasPorGeneroOriginal, setPeliculasPorGeneroOriginal] = useState({}); 
+  const [peliculasPorGeneroFiltrada, setPeliculasPorGeneroFiltrada] = useState({}); 
+  const [noHayResultadosFiltro, setNoHayResultadosFiltro] = useState(false);
 
   useEffect(() => {
     const grouped = {};
@@ -38,6 +42,8 @@ const Home = () => {
       });
     });
     setPeliculasPorGenero(grouped);
+    setPeliculasPorGeneroFiltrada(grouped); 
+    setPeliculasPorGeneroOriginal(grouped);
   }, []);
 
   useEffect(() => {
@@ -100,6 +106,44 @@ const Home = () => {
   const conteoPorVer = contarPorGenero(porVer);
   const conteoVistas = contarPorGenero(vistas);
 
+  const handleFiltrarPeliculas = (filtros) => {
+    let resultadosPorGenero = {};
+    let algunaPeliculaEncontrada = false;
+    const hayFiltroActivo = Object.values(filtros).some(value => value); 
+
+    for (const genero in peliculasPorGeneroOriginal) {
+      const peliculasFiltradas = peliculasPorGeneroOriginal[genero].filter(pelicula => {
+        let directorCoincide = true;
+        let tituloCoincide = true;
+        let anioCoincide = true;
+        let ratingCoincide = true;
+
+        if (filtros.director) {
+          directorCoincide = pelicula.director.toLowerCase().trim().includes(filtros.director.toLowerCase().trim());
+        }
+        if (filtros.titulo) {
+          tituloCoincide = pelicula.titulo.toLowerCase().trim().includes(filtros.titulo.toLowerCase().trim());
+        }
+        if (filtros.anio) {
+          anioCoincide = String(pelicula.anio) === filtros.anio.trim();
+        }
+        if (filtros.rating) {
+          ratingCoincide = pelicula.rating >= parseFloat(filtros.rating.trim());
+        }
+
+        return directorCoincide && tituloCoincide && anioCoincide && ratingCoincide;
+      });
+
+      if (peliculasFiltradas.length > 0) {
+        resultadosPorGenero[genero] = peliculasFiltradas;
+        algunaPeliculaEncontrada = true;
+      }
+    }
+
+    setPeliculasPorGeneroFiltrada(resultadosPorGenero);
+    console.log('resultado  '+Object.values(resultadosPorGenero));
+    setNoHayResultadosFiltro(hayFiltroActivo && !algunaPeliculaEncontrada); 
+  };
   return (
     <div className={styles.MainContainer}>
       <div className={styles.Menu}>
@@ -149,7 +193,28 @@ const Home = () => {
             />
           )}
 
-          {vistaActual === 'home' && (
+          {vistaActual === 'home' && !noHayResultadosFiltro && (
+            <>
+              <FiltrosPeliculas
+                peliculasPorGenero={peliculasPorGeneroOriginal}
+                onFiltrarPeliculas={handleFiltrarPeliculas}
+              />
+              {noHayResultadosFiltro ? (
+                <div className="sin-resultados">No existen películas con los filtros aplicados. Revise los filtros.</div>
+              ) : (
+                <PeliculasPorGenero
+                  peliculasPorGenero={peliculasPorGeneroFiltrada}
+                  onMarcarVista={marcarComoVista}
+                  onMarcarPorVer={handleAgregarPorVer}
+                  onEditar={handleEditar}
+                  onCancelarFormulario={handleCancelarFormulario}
+                  onEliminar={handleEliminar}
+                />
+              )}
+            </>
+          )}
+
+          {vistaActual === 'home' && noHayResultadosFiltro &&(
             <PeliculasPorGenero
               peliculasPorGenero={peliculasPorGenero}
               onMarcarVista={marcarComoVista}

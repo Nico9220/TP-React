@@ -1,0 +1,76 @@
+.contenedorprincipalfiltro {
+    position: relative; 
+  }
+  
+  .iconofiltro {
+    position: fixed;
+    top: 20px; 
+    right: 20px; 
+    cursor: pointer;
+    z-index: 1050; 
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    border-radius: 5px; 
+  }
+  
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1049; 
+  }
+  
+  .contenedorfiltros {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(49, 49, 49);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1051; 
+    text-align: center;
+  }
+  
+  .contenedor-filtros h2 {
+    margin-bottom: 15px;
+  }
+  
+  .filtro {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .filtro label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .filtro input[type="text"],
+  .filtro input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px; 
+  }
+
+  .botonbuscar {
+    padding: 10px 15px;
+    background-color: #007bff; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 15px;
+  }
+  
+  .botonbuscar:hover {
+    background-color: #0056b3;
+  }
