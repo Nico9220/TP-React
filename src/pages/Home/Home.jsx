@@ -5,13 +5,16 @@ import styles from './Home.module.css';
 import Menu from '../../components/Menu/Menu';
 import PeliculasPorGenero from '../../components/Peliculas/PeliculasPorGenero';
 import FormularioItem from '../../components/FormularioItem/FormularioItem';
+import CardPelicula from '../../components/CardPelicula/CardPelicula';
 import Modal from 'react-modal';
+
 Modal.setAppElement('#root');
 
 const LOCAL_STORAGE_POR_VER_KEY = 'peliculasPorVer';
 const LOCAL_STORAGE_VISTAS_KEY = 'peliculasVistas';
 
 const Home = () => {
+  const [vistaActual, setVistaActual] = useState('home');
   const [porVer, setPorVer] = useState(() => {
     const storedPorVer = localStorage.getItem(LOCAL_STORAGE_POR_VER_KEY);
     return storedPorVer ? JSON.parse(storedPorVer) : [];
@@ -23,38 +26,34 @@ const Home = () => {
   });
 
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
-  const [peliculasPorGenero, setPeliculasPorGenero] = useState({}); 
+  const [peliculasPorGenero, setPeliculasPorGenero] = useState({});
+  const [itemEditando, setItemEditando] = useState(null);
 
-  // Cargar películas por defecto si no hay nada
   useEffect(() => {
-    //  Siempre borrar localStorage para que se muestren las nuevas imagenes cargadas en el json (modo desarrollo, cambiar esto cuando se traigan por API)
+    // Solo para modo desarrollo
     localStorage.removeItem(LOCAL_STORAGE_POR_VER_KEY);
     localStorage.removeItem(LOCAL_STORAGE_VISTAS_KEY);
-  
+
     const peliculasIniciales = peliculasIndispensables.map(p => ({
       ...p,
-      id: Date.now() + Math.random(), // ID único
+      id: Date.now() + Math.random(),
       visto: false
     }));
     setPorVer(peliculasIniciales);
   }, []);
 
-  // Agrupar por género (no lo estamos usando aún, pero lo dejamos listo)
   useEffect(() => {
     const grouped = {};
     peliculasIndispensables.forEach(pelicula => {
       const generos = Array.isArray(pelicula.genero) ? pelicula.genero : [pelicula.genero];
       generos.forEach(genero => {
-        if (!grouped[genero]) {
-          grouped[genero] = [];
-        }
+        if (!grouped[genero]) grouped[genero] = [];
         grouped[genero].push(pelicula);
       });
     });
     setPeliculasPorGenero(grouped);
   }, []);
 
-  // Guardar en localStorage
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_POR_VER_KEY, JSON.stringify(porVer));
   }, [porVer]);
@@ -63,7 +62,6 @@ const Home = () => {
     localStorage.setItem(LOCAL_STORAGE_VISTAS_KEY, JSON.stringify(vistas));
   }, [vistas]);
 
-  // Agregar
   const handleAgregarPorVer = (nuevoItem) => {
     setPorVer([...porVer, { ...nuevoItem, visto: false }]);
   };
@@ -72,45 +70,46 @@ const Home = () => {
     setVistas([...vistas, { ...nuevoItem, visto: true }]);
   };
 
-  // Mostrar/ocultar formulario
   const handleMostrarFormulario = () => setMostrarFormulario(true);
   const handleCancelarFormulario = () => setMostrarFormulario(false);
 
-  // Marcar como vista
   const marcarComoVista = (id) => {
     const item = porVer.find((item) => item.id === id);
     if (!item) return;
-
     setVistas([...vistas, { ...item, visto: true }]);
     setPorVer(porVer.filter((item) => item.id !== id));
   };
 
-  // EDitarr
-  
-
   const handleEditar = (item) => {
     setItemEditando(item);
-    setMostrarFormulario(true); // Mostrar el formulario al editar
+    setMostrarFormulario(true);
   };
 
   const handleEditarConfirmado = (itemEditado) => {
     if (itemEditado.visto) {
-      // editar en vistas
       setVistas(vistas.map(p => p.id === itemEditado.id ? itemEditado : p));
     } else {
-      // editar en porVer
       setPorVer(porVer.map(p => p.id === itemEditado.id ? itemEditado : p));
     }
-  
     setItemEditando(null);
-    setMostrarFormulario(false); // Cerrar el formulario después de editar
+    setMostrarFormulario(false);
+  };
+
+  const handleEliminar = (id) => {
+    setPorVer((prev) => prev.filter((item) => item.id !== id));
+    setVistas((prev) => prev.filter((item) => item.id !== id));
   };
 
   return (
     <div>
       <Titulo texto="Cine" />
+      
       <div className={styles.Menu}>
-        <Menu />
+        <Menu
+          onMostrarHome={() => setVistaActual('home')}
+          onMostrarPorVer={() => setVistaActual('porVer')}
+          onMostrarVistas={() => setVistaActual('vistas')}
+        />
       </div>
 
       <div className={styles.Contenido}>
@@ -124,12 +123,53 @@ const Home = () => {
           />
         )}
 
-        <PeliculasPorGenero
-          peliculasPorGenero={peliculasPorGenero}
-          onMarcarVista={marcarComoVista}
-          onMarcarPorVer={handleAgregarPorVer}
-          onEditar={handleEditar}
-        />
+        {vistaActual === 'home' && (
+          <PeliculasPorGenero
+            peliculasPorGenero={peliculasPorGenero}
+            onMarcarVista={marcarComoVista}
+            onMarcarPorVer={handleAgregarPorVer}
+            onEditar={handleEditar}
+            onCancelarFormulario={handleCancelarFormulario}
+            onEliminar={handleEliminar}
+          />
+        )}
+
+        {vistaActual === 'porVer' && (
+          <div className={styles.cardsContainer}>
+            <h2>🎯 Películas por ver</h2>
+            {porVer.length === 0 ? (
+              <p>No hay películas por ver.</p>
+            ) : (
+              porVer.map(item => (
+                <CardPelicula
+                  key={item.id}
+                  item={item}
+                  onMarcarVista={marcarComoVista}
+                  onEditar={handleEditar}
+                  onEliminar={handleEliminar}
+                />
+              ))
+            )}
+          </div>
+        )}
+
+        {vistaActual === 'vistas' && (
+          <div className={styles.cardsContainer}>
+            <h2>✅ Películas vistas</h2>
+            {vistas.length === 0 ? (
+              <p>No hay películas vistas.</p>
+            ) : (
+              vistas.map(item => (
+                <CardPelicula
+                  key={item.id}
+                  item={item}
+                  onEditar={handleEditar}
+                  onEliminar={handleEliminar}
+                />
+              ))
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -14,7 +14,8 @@ const PeliculasPorGenero = ({
   onMarcarVista,
   onEditar,
   onMarcarPorVer,
-  onCancelarFormulario
+  onCancelarFormulario,
+  onEliminar
 }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [peliculaSeleccionada, setPeliculaSeleccionada] = useState(null);
@@ -95,7 +96,12 @@ const PeliculasPorGenero = ({
         item={peliculaSeleccionada}
         onMarcarVista={onMarcarVista}
         onMarcarPorVer={onMarcarPorVer}
-        onEditar={(item) => setItemEditando(item)} // 👈 no cerramos el modal aún
+        onEditar={(item) => setItemEditando(item)} 
+        onEliminar={(id) => {
+          onEliminar(id);
+          cerrarModal();
+        }}
+        
       />
     ) : (
       <FormularioItem
@@ -110,7 +116,6 @@ const PeliculasPorGenero = ({
     )}
   </>
 )}
-
         </div>
       </Modal>
     </div>

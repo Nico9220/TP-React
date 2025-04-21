@@ -1,6 +1,6 @@
 import styles from './CardPelicula.module.css';
 
-const CardPelicula = ({ item, onMarcarVista, onMarcarPorVer = () => {}, onEditar }) => {
+const CardPelicula = ({ item, onMarcarVista, onMarcarPorVer = () => {}, onEditar, onEliminar }) => {
   return (
     <div className={styles.card}>
       <img src={item.imagen} alt={item.titulo} className={styles.imagen} />
@@ -43,6 +43,20 @@ const CardPelicula = ({ item, onMarcarVista, onMarcarPorVer = () => {}, onEditar
 >
   Editar
 </button>
+
+{onEliminar && (
+  <button
+    className={styles.boton}
+    onClick={(e) => {
+      e.stopPropagation();
+      onEliminar(item.id);
+    }}
+  >
+    Eliminar
+  </button>
+)}
+
+
 
     </div>
   );
