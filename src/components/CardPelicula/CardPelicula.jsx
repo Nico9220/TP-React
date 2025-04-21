@@ -14,19 +14,20 @@ const CardPelicula = ({ item, onMarcarVista, onMarcarPorVer = () => {}, onEditar
       <button
   className={styles.boton}
   onClick={(e) => {
-    e.preventDefault(); // 👈 importante
-    e.stopPropagation(); // 👈 esto evita que se dispare el cierre del modal
-    onMarcarVista(item.id); // o la acción que quieras
+    e.preventDefault();
+    e.stopPropagation();
+    onMarcarVista(item);
   }}
 >
   Marcar "Vista"
 </button>
 
+
 <button
           className={styles.boton}
           onClick={(e) => {
             e.stopPropagation();
-            onMarcarPorVer?.(item.id);
+            onMarcarPorVer?.(item);
           }}
         >
           Marcar "Por ver"

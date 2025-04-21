@@ -29,18 +29,18 @@ const Home = () => {
   const [peliculasPorGenero, setPeliculasPorGenero] = useState({});
   const [itemEditando, setItemEditando] = useState(null);
 
-  useEffect(() => {
-    // Solo para modo desarrollo
-    localStorage.removeItem(LOCAL_STORAGE_POR_VER_KEY);
-    localStorage.removeItem(LOCAL_STORAGE_VISTAS_KEY);
+  // useEffect(() => {
+  //   // Solo para modo desarrollo
+  //   localStorage.removeItem(LOCAL_STORAGE_POR_VER_KEY);
+  //   localStorage.removeItem(LOCAL_STORAGE_VISTAS_KEY);
 
-    const peliculasIniciales = peliculasIndispensables.map(p => ({
-      ...p,
-      id: Date.now() + Math.random(),
-      visto: false
-    }));
-    setPorVer(peliculasIniciales);
-  }, []);
+  //   const peliculasIniciales = peliculasIndispensables.map(p => ({
+  //     ...p,
+  //     id: Date.now() + Math.random(),
+  //     visto: false
+  //   }));
+  //   setPorVer(peliculasIniciales);
+  // }, []);
 
   useEffect(() => {
     const grouped = {};
@@ -73,12 +73,23 @@ const Home = () => {
   const handleMostrarFormulario = () => setMostrarFormulario(true);
   const handleCancelarFormulario = () => setMostrarFormulario(false);
 
-  const marcarComoVista = (id) => {
-    const item = porVer.find((item) => item.id === id);
-    if (!item) return;
-    setVistas([...vistas, { ...item, visto: true }]);
-    setPorVer(porVer.filter((item) => item.id !== id));
+  // const marcarComoVista = (id) => {
+  //   const item = porVer.find((item) => item.id === id);
+  //   if (!item) return;
+  //   setVistas([...vistas, { ...item, visto: true }]);
+  //   console.log("Pelicula marcada como vista:", item.titulo);
+  //   setPorVer(porVer.filter((item) => item.id !== id));
+  // };
+
+  const marcarComoVista = (item) => {
+
+    if (!vistas.some(p => p.id === item.id)) {
+      setVistas([...vistas, { ...item, visto: true }]);
+    }
+  
+    setPorVer(porVer.filter(p => p.id !== item.id));
   };
+  
 
   const handleEditar = (item) => {
     setItemEditando(item);

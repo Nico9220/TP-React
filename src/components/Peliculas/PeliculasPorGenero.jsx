@@ -93,16 +93,22 @@ const PeliculasPorGenero = ({
   <>
     {!itemEditando ? (
       <CardPelicula
-        item={peliculaSeleccionada}
-        onMarcarVista={onMarcarVista}
-        onMarcarPorVer={onMarcarPorVer}
-        onEditar={(item) => setItemEditando(item)} 
-        onEliminar={(id) => {
-          onEliminar(id);
-          cerrarModal();
-        }}
-        
-      />
+      item={peliculaSeleccionada}
+      onMarcarVista={(item) => {
+        onMarcarVista(item);
+        cerrarModal();
+      }}
+      onMarcarPorVer={(item) => {
+        onMarcarPorVer(item);
+        cerrarModal();
+      }}
+      onEditar={(item) => setItemEditando(item)} 
+      onEliminar={(id) => {
+        onEliminar(id);
+        cerrarModal();
+      }}
+    />
+    
     ) : (
       <FormularioItem
         itemEditando={itemEditando}
