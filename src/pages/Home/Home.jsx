@@ -1,3 +1,4 @@
+// Home.jsx
 import { useState, useEffect } from 'react';
 import Titulo from '../../components/Titulo/Titulo';
 import peliculasIndispensables from '../../../data/pelis.json'; 
@@ -19,28 +20,13 @@ const Home = () => {
     const storedPorVer = localStorage.getItem(LOCAL_STORAGE_POR_VER_KEY);
     return storedPorVer ? JSON.parse(storedPorVer) : [];
   });
-
   const [vistas, setVistas] = useState(() => {
     const storedVistas = localStorage.getItem(LOCAL_STORAGE_VISTAS_KEY);
     return storedVistas ? JSON.parse(storedVistas) : [];
   });
-
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [peliculasPorGenero, setPeliculasPorGenero] = useState({});
   const [itemEditando, setItemEditando] = useState(null);
-
-  // useEffect(() => {
-  //   // Solo para modo desarrollo
-  //   localStorage.removeItem(LOCAL_STORAGE_POR_VER_KEY);
-  //   localStorage.removeItem(LOCAL_STORAGE_VISTAS_KEY);
-
-  //   const peliculasIniciales = peliculasIndispensables.map(p => ({
-  //     ...p,
-  //     id: Date.now() + Math.random(),
-  //     visto: false
-  //   }));
-  //   setPorVer(peliculasIniciales);
-  // }, []);
 
   useEffect(() => {
     const grouped = {};
@@ -73,23 +59,12 @@ const Home = () => {
   const handleMostrarFormulario = () => setMostrarFormulario(true);
   const handleCancelarFormulario = () => setMostrarFormulario(false);
 
-  // const marcarComoVista = (id) => {
-  //   const item = porVer.find((item) => item.id === id);
-  //   if (!item) return;
-  //   setVistas([...vistas, { ...item, visto: true }]);
-  //   console.log("Pelicula marcada como vista:", item.titulo);
-  //   setPorVer(porVer.filter((item) => item.id !== id));
-  // };
-
   const marcarComoVista = (item) => {
-
     if (!vistas.some(p => p.id === item.id)) {
       setVistas([...vistas, { ...item, visto: true }]);
     }
-  
     setPorVer(porVer.filter(p => p.id !== item.id));
   };
-  
 
   const handleEditar = (item) => {
     setItemEditando(item);
@@ -111,10 +86,22 @@ const Home = () => {
     setVistas((prev) => prev.filter((item) => item.id !== id));
   };
 
+  const contarPorGenero = (lista) => {
+    const conteo = {};
+    lista.forEach((item) => {
+      const generos = Array.isArray(item.genero) ? item.genero : [item.genero];
+      generos.forEach((genero) => {
+        conteo[genero] = (conteo[genero] || 0) + 1;
+      });
+    });
+    return conteo;
+  };
+
+  const conteoPorVer = contarPorGenero(porVer);
+  const conteoVistas = contarPorGenero(vistas);
+
   return (
-    <div>
-      <Titulo texto="Cine" />
-      
+    <div className={styles.MainContainer}>
       <div className={styles.Menu}>
         <Menu
           onMostrarHome={() => setVistaActual('home')}
@@ -123,64 +110,93 @@ const Home = () => {
         />
       </div>
 
-      <div className={styles.Contenido}>
-        {mostrarFormulario && (
-          <FormularioItem
-            onAgregarPorVer={handleAgregarPorVer}
-            onAgregarVista={handleAgregarVista}
-            onCancelar={handleCancelarFormulario}
-            itemEditando={itemEditando}
-            onEditarConfirmado={handleEditarConfirmado}
-          />
-        )}
-
-        {vistaActual === 'home' && (
-          <PeliculasPorGenero
-            peliculasPorGenero={peliculasPorGenero}
-            onMarcarVista={marcarComoVista}
-            onMarcarPorVer={handleAgregarPorVer}
-            onEditar={handleEditar}
-            onCancelarFormulario={handleCancelarFormulario}
-            onEliminar={handleEliminar}
-          />
-        )}
-
-        {vistaActual === 'porVer' && (
-          <div className={styles.cardsContainer}>
-            <h2>🎯 Películas por ver</h2>
-            {porVer.length === 0 ? (
-              <p>No hay películas por ver.</p>
-            ) : (
-              porVer.map(item => (
-                <CardPelicula
-                  key={item.id}
-                  item={item}
-                  onMarcarVista={marcarComoVista}
-                  onEditar={handleEditar}
-                  onEliminar={handleEliminar}
-                />
-              ))
-            )}
+      <div className={styles.MainContent}>
+        <div className={styles.Header}>
+          <Titulo texto="Cine" />
+          <div className={styles.ResumenWrapper}>
+            <div className={styles.resumen}>
+              <h3>🎯 Resumen</h3>
+              <p>Total por ver: {porVer.length}</p>
+              <p>Total vistas: {vistas.length}</p>
+              <div>
+                <strong>Por género (Por ver):</strong>
+                <ul>
+                  {Object.entries(conteoPorVer).map(([genero, cantidad]) => (
+                    <li key={genero}>{genero}: {cantidad}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <strong>Por género (Vistas):</strong>
+                <ul>
+                  {Object.entries(conteoVistas).map(([genero, cantidad]) => (
+                    <li key={genero}>{genero}: {cantidad}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
-        )}
+        </div>
 
-        {vistaActual === 'vistas' && (
-          <div className={styles.cardsContainer}>
-            <h2>✅ Películas vistas</h2>
-            {vistas.length === 0 ? (
-              <p>No hay películas vistas.</p>
-            ) : (
-              vistas.map(item => (
-                <CardPelicula
-                  key={item.id}
-                  item={item}
-                  onEditar={handleEditar}
-                  onEliminar={handleEliminar}
-                />
-              ))
-            )}
-          </div>
-        )}
+        <div className={styles.Contenido}>
+          {mostrarFormulario && (
+            <FormularioItem
+              onAgregarPorVer={handleAgregarPorVer}
+              onAgregarVista={handleAgregarVista}
+              onCancelar={handleCancelarFormulario}
+              itemEditando={itemEditando}
+              onEditarConfirmado={handleEditarConfirmado}
+            />
+          )}
+
+          {vistaActual === 'home' && (
+            <PeliculasPorGenero
+              peliculasPorGenero={peliculasPorGenero}
+              onMarcarVista={marcarComoVista}
+              onMarcarPorVer={handleAgregarPorVer}
+              onEditar={handleEditar}
+              onCancelarFormulario={handleCancelarFormulario}
+              onEliminar={handleEliminar}
+            />
+          )}
+
+          {vistaActual === 'porVer' && (
+            <div className={styles.cardsContainer}>
+              <h2>🎯 Películas por ver</h2>
+              {porVer.length === 0 ? (
+                <p>No hay películas por ver.</p>
+              ) : (
+                porVer.map(item => (
+                  <CardPelicula
+                    key={item.id}
+                    item={item}
+                    onMarcarVista={marcarComoVista}
+                    onEditar={handleEditar}
+                    onEliminar={handleEliminar}
+                  />
+                ))
+              )}
+            </div>
+          )}
+
+          {vistaActual === 'vistas' && (
+            <div className={styles.cardsContainer}>
+              <h2>✅ Películas vistas</h2>
+              {vistas.length === 0 ? (
+                <p>No hay películas vistas.</p>
+              ) : (
+                vistas.map(item => (
+                  <CardPelicula
+                    key={item.id}
+                    item={item}
+                    onEditar={handleEditar}
+                    onEliminar={handleEliminar}
+                  />
+                ))
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

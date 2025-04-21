@@ -41,4 +41,43 @@ ul {
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 999;
   }
-  
+
+.resumen {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  max-width: 300px;
+  margin: 1rem 73rem 2rem auto;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.resumen h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.resumen p {
+  margin: 0.4rem 0;
+}
+
+.resumen strong {
+  display: block;
+  margin-top: 1rem;
+}
+
+.resumen ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.4rem 0;
+}
+
+.resumen li {
+  font-size: 0.95rem;
+  padding: 0.2rem 0;
+  border-bottom: 1px solid #444;
+}
