@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import Titulo from '../../components/Titulo/Titulo';
-import Peliculas from '../../components/Peliculas/Peliculas';
 import peliculasIndispensables from '../../../data/pelis.json'; 
 import styles from './Home.module.css';
 import Menu from '../../components/Menu/Menu';
 import PeliculasPorGenero from '../../components/Peliculas/PeliculasPorGenero';
-import PeliculasVistas from '../../components/Peliculas/PeliculasVistas';
+import FormularioItem from '../../components/FormularioItem/FormularioItem';
+import Modal from 'react-modal';
+Modal.setAppElement('#root');
 
 const LOCAL_STORAGE_POR_VER_KEY = 'peliculasPorVer';
 const LOCAL_STORAGE_VISTAS_KEY = 'peliculasVistas';
@@ -37,7 +38,6 @@ const Home = () => {
     }));
     setPorVer(peliculasIniciales);
   }, []);
-  
 
   // Agrupar por género (no lo estamos usando aún, pero lo dejamos listo)
   useEffect(() => {
@@ -86,12 +86,11 @@ const Home = () => {
   };
 
   // EDitarr
-
-  const [itemEditando, setItemEditando] = useState(null);
+  
 
   const handleEditar = (item) => {
     setItemEditando(item);
-    setMostrarFormulario(true);
+    setMostrarFormulario(true); // Mostrar el formulario al editar
   };
 
   const handleEditarConfirmado = (itemEditado) => {
@@ -104,31 +103,34 @@ const Home = () => {
     }
   
     setItemEditando(null);
-    setMostrarFormulario(false);
+    setMostrarFormulario(false); // Cerrar el formulario después de editar
   };
-  
-  
 
   return (
     <div>
       <Titulo texto="Cine" />
-
       <div className={styles.Menu}>
         <Menu />
       </div>
 
       <div className={styles.Contenido}>
-      <PeliculasPorGenero
-  peliculasPorGenero={peliculasPorGenero}
-  onMarcarVista={marcarComoVista}
-  onMarcarPorVer={handleAgregarPorVer}
-  onEditar={handleEditar}
-/>
+        {mostrarFormulario && (
+          <FormularioItem
+            onAgregarPorVer={handleAgregarPorVer}
+            onAgregarVista={handleAgregarVista}
+            onCancelar={handleCancelarFormulario}
+            itemEditando={itemEditando}
+            onEditarConfirmado={handleEditarConfirmado}
+          />
+        )}
 
-        {/*<PeliculasVistas 
-          peliculasVistas = {vistas}/>*/}
+        <PeliculasPorGenero
+          peliculasPorGenero={peliculasPorGenero}
+          onMarcarVista={marcarComoVista}
+          onMarcarPorVer={handleAgregarPorVer}
+          onEditar={handleEditar}
+        />
       </div>
-
     </div>
   );
 };

@@ -3,6 +3,7 @@ import Slider from 'react-slick';
 import Modal from 'react-modal';
 import styles from './PeliculasPorGenero.module.css';
 import CardPelicula from '../CardPelicula/CardPelicula';
+import FormularioItem from '../../components/FormularioItem/FormularioItem';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -12,7 +13,8 @@ const PeliculasPorGenero = ({
   peliculasPorGenero,
   onMarcarVista,
   onEditar,
-  onMarcarPorVer
+  onMarcarPorVer,
+  onCancelarFormulario
 }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [peliculaSeleccionada, setPeliculaSeleccionada] = useState(null);
@@ -25,7 +27,12 @@ const PeliculasPorGenero = ({
   const cerrarModal = () => {
     setModalIsOpen(false);
     setPeliculaSeleccionada(null);
+    setItemEditando(null);  
+    onCancelarFormulario?.();
   };
+
+  const [itemEditando, setItemEditando] = useState(null);
+
 
   const settings = {
     dots: false,
@@ -79,21 +86,31 @@ const PeliculasPorGenero = ({
         overlayClassName={styles.overlay}
       >
         <div className={styles.cardContainer}>
-          {peliculaSeleccionada && (
-            <CardPelicula
-              item={peliculaSeleccionada}
-              onMarcarVista={(id) => {
-                onMarcarVista(id);
-              }}
-              onMarcarPorVer={(id) => {
-                onMarcarPorVer(id);
-              }}
-              onEditar={(item) => {
-                onEditar(item);
-              }}
-            />
-          )}
-          <button onClick={cerrarModal} className={styles.botonCerrar}>Cerrar</button>
+        <button onClick={cerrarModal} className={styles.botonCerrarX}>×</button>
+
+        {peliculaSeleccionada && (
+  <>
+    {!itemEditando ? (
+      <CardPelicula
+        item={peliculaSeleccionada}
+        onMarcarVista={onMarcarVista}
+        onMarcarPorVer={onMarcarPorVer}
+        onEditar={(item) => setItemEditando(item)} // 👈 no cerramos el modal aún
+      />
+    ) : (
+      <FormularioItem
+        itemEditando={itemEditando}
+        onEditarConfirmado={(itemEditado) => {
+          onEditar(itemEditado);
+          setItemEditando(null);
+          cerrarModal();
+        }}
+        onCancelar={() => setItemEditando(null)}
+      />
+    )}
+  </>
+)}
+
         </div>
       </Modal>
     </div>
