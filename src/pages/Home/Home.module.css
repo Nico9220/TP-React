@@ -1,57 +1,71 @@
 body {
-    background-image: url("../../resources/fondo.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-image: url("../../resources/fondo.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
 }
+
 ul {
-    list-style-type: none;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .Menu {
-    float: left;
-    width: 19%;
+  float: left;
+  width: 19%;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .Contenido {
-    float: right;
-    width: 80%;
+  float: right;
+  width: 80%;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .modalFormulario {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 2rem;
-    max-width: 500px;
-    width: 100%;
-    border-radius: 1rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-  }
-  
-  .overlayFormulario {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-  }
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 2rem;
+  max-width: 500px;
+  width: 100%;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.overlayFormulario {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
 
 .resumen {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
   background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
   padding: 1rem 1.5rem;
   border-radius: 10px;
-  max-width: 300px;
-  margin: 1rem 73rem 2rem auto;
+  width: 300px;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
   font-family: 'Segoe UI', sans-serif;
+  z-index: 10;
 }
+
 
 .resumen h3 {
   font-size: 1.3rem;
@@ -80,4 +94,42 @@ ul {
   font-size: 0.95rem;
   padding: 0.2rem 0;
   border-bottom: 1px solid #444;
+}
+
+.encabezadoResumen {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.encabezadoResumen h3 {
+  margin: 0;
+}
+
+
+@media screen and (max-width: 768px) {
+  .Menu {
+    width: 100%;
+    float: none;
+    text-align: center;
+  }
+
+  .Contenido {
+    width: 100%;
+    float: none;
+  }
+
+  .resumen {
+    max-width: 90%;
+    margin: 1rem auto;
+    font-size: 0.95rem;
+  }
+
+  .resumen h3 {
+    font-size: 1.1rem;
+  }
+
+  .resumen li {
+    font-size: 0.9rem;
+  }
 }

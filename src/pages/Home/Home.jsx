@@ -158,27 +158,38 @@ const Home = () => {
         <div className={styles.Header}>
           <Titulo texto="Cine" />
           <div className={styles.ResumenWrapper}>
-            <div className={styles.resumen}>
-              <h3>🎯 Resumen</h3>
-              <p>Total por ver: {porVer.length}</p>
-              <p>Total vistas: {vistas.length}</p>
-              <div>
-                <strong>Por género (Por ver):</strong>
-                <ul>
-                  {Object.entries(conteoPorVer).map(([genero, cantidad]) => (
-                    <li key={genero}>{genero}: {cantidad}</li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <strong>Por género (Vistas):</strong>
-                <ul>
-                  {Object.entries(conteoVistas).map(([genero, cantidad]) => (
-                    <li key={genero}>{genero}: {cantidad}</li>
-                  ))}
-                </ul>
-              </div>
+          <div className={styles.resumen}>
+          <div className={styles.encabezadoResumen}>
+          <h3>🎯 Resumen</h3>
+            <div className={styles.resumenAlineado}>
+            <FiltrosPeliculas
+              peliculasPorGenero={peliculasPorGeneroOriginal}
+              onFiltrarPeliculas={handleFiltrarPeliculas}
+            />
             </div>
+    
+  </div>
+
+  <p>Total por ver: {porVer.length}</p>
+  <p>Total vistas: {vistas.length}</p>
+  <div>
+    <strong>Por género (Por ver):</strong>
+    <ul>
+      {Object.entries(conteoPorVer).map(([genero, cantidad]) => (
+        <li key={genero}>{genero}: {cantidad}</li>
+      ))}
+    </ul>
+  </div>
+  <div>
+    <strong>Por género (Vistas):</strong>
+    <ul>
+      {Object.entries(conteoVistas).map(([genero, cantidad]) => (
+        <li key={genero}>{genero}: {cantidad}</li>
+      ))}
+    </ul>
+  </div>
+</div>
+
           </div>
         </div>
 
@@ -192,27 +203,27 @@ const Home = () => {
               onEditarConfirmado={handleEditarConfirmado}
             />
           )}
+{vistaActual === 'home' && (
+  <>
+    {/* <FiltrosPeliculas
+      peliculasPorGenero={peliculasPorGeneroOriginal}
+      onFiltrarPeliculas={handleFiltrarPeliculas}
+    /> */}
 
-          {vistaActual === 'home' && !noHayResultadosFiltro && (
-            <>
-              <FiltrosPeliculas
-                peliculasPorGenero={peliculasPorGeneroOriginal}
-                onFiltrarPeliculas={handleFiltrarPeliculas}
-              />
-              {noHayResultadosFiltro ? (
-                <div className="sin-resultados">No existen películas con los filtros aplicados. Revise los filtros.</div>
-              ) : (
-                <PeliculasPorGenero
-                  peliculasPorGenero={peliculasPorGeneroFiltrada}
-                  onMarcarVista={marcarComoVista}
-                  onMarcarPorVer={handleAgregarPorVer}
-                  onEditar={handleEditar}
-                  onCancelarFormulario={handleCancelarFormulario}
-                  onEliminar={handleEliminar}
-                />
-              )}
-            </>
-          )}
+    {noHayResultadosFiltro ? (
+      <div className="sin-resultados">No existen películas con los filtros aplicados. Revise los filtros.</div>
+    ) : (
+      <PeliculasPorGenero
+        peliculasPorGenero={peliculasPorGeneroFiltrada}
+        onMarcarVista={marcarComoVista}
+        onMarcarPorVer={handleAgregarPorVer}
+        onEditar={handleEditar}
+        onCancelarFormulario={handleCancelarFormulario}
+        onEliminar={handleEliminar}
+      />
+    )}
+  </>
+)}
 
           {vistaActual === 'home' && noHayResultadosFiltro &&(
             <PeliculasPorGenero
@@ -221,7 +232,7 @@ const Home = () => {
               onMarcarPorVer={handleAgregarPorVer}
               onEditar={handleEditar}
               onCancelarFormulario={handleCancelarFormulario}
-              onEliminar={handleEliminar}
+              // onEliminar={handleEliminar}
             />
           )}
 

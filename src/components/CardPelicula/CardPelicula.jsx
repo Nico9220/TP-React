@@ -19,7 +19,7 @@ const CardPelicula = ({ item, onMarcarVista, onMarcarPorVer = () => {}, onEditar
     onMarcarVista(item);
   }}
 >
-  Marcar "Vista"
+  Vista
 </button>
 
 
@@ -30,7 +30,7 @@ const CardPelicula = ({ item, onMarcarVista, onMarcarPorVer = () => {}, onEditar
             onMarcarPorVer?.(item);
           }}
         >
-          Marcar "Por ver"
+          Por ver
         </button>
 
 
