@@ -31,6 +31,7 @@ const Home = () => {
   const [peliculasPorGeneroOriginal, setPeliculasPorGeneroOriginal] = useState({}); 
   const [peliculasPorGeneroFiltrada, setPeliculasPorGeneroFiltrada] = useState({}); 
   const [noHayResultadosFiltro, setNoHayResultadosFiltro] = useState(false);
+  const [orden, setOrden] = useState(' ');
 
   useEffect(() => {
     const grouped = {};
@@ -144,6 +145,40 @@ const Home = () => {
     console.log('resultado  '+Object.values(resultadosPorGenero));
     setNoHayResultadosFiltro(hayFiltroActivo && !algunaPeliculaEncontrada); 
   };
+
+
+  const handleOrdenar = (event) => {
+    const nuevoOrden = event.target.value;
+    setOrden(nuevoOrden);
+  
+    if (nuevoOrden === '') {
+      setPeliculasPorGeneroFiltrada(peliculasPorGeneroOriginal);
+      return;
+    }
+  
+    const peliculasOrdenadas = {};
+    for (const genero in peliculasPorGeneroFiltrada) {
+      peliculasOrdenadas[genero] = [...peliculasPorGeneroFiltrada[genero]].sort((a, b) => {
+        const anioA = parseInt(a.anio, 10);
+        const anioB = parseInt(b.anio, 10);
+  
+        switch (nuevoOrden) {
+          case 'mas nuevas':
+            return anioB - anioA; 
+          case 'mas viejas':
+            return anioA - anioB; 
+          case 'mejor puntuadas':
+            return b.rating - a.rating;
+          case 'peor puntuadas':
+            return a.rating - b.rating;
+          default:
+            return 0;
+        }
+      });
+    }
+    setPeliculasPorGeneroFiltrada(peliculasOrdenadas);
+  };
+
   return (
     <div className={styles.MainContainer}>
       <div className={styles.Menu}>
@@ -209,7 +244,16 @@ const Home = () => {
       peliculasPorGenero={peliculasPorGeneroOriginal}
       onFiltrarPeliculas={handleFiltrarPeliculas}
     /> */}
-
+    <div className={styles.ordenarContainer}> 
+        <label htmlFor="ordenarPor">Ordenar por:</label>
+        <select id="ordenarPor" value={orden} onChange={handleOrdenar}>
+            <option value="">Sin ordenar</option> 
+            <option value="mas nuevas">Más nuevas</option>
+            <option value="mas viejas">Más viejas</option>
+            <option value="mejor puntuadas">Mejor puntuadas</option>
+            <option value="peor puntuadas">Peor puntuadas</option>
+        </select>
+      </div>
     {noHayResultadosFiltro ? (
       <div className="sin-resultados">No existen películas con los filtros aplicados. Revise los filtros.</div>
     ) : (

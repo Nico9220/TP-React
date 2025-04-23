@@ -106,6 +106,22 @@ ul {
   margin: 0;
 }
 
+.ordenarContainer {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.ordenarContainer label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.ordenarContainer select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
 
 @media screen and (max-width: 768px) {
   .Menu {
