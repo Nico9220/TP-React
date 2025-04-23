@@ -7,6 +7,7 @@ import Menu from '../../components/Menu/Menu';
 import PeliculasPorGenero from '../../components/Peliculas/PeliculasPorGenero';
 import FormularioItem from '../../components/FormularioItem/FormularioItem';
 import CardPelicula from '../../components/CardPelicula/CardPelicula';
+import BotonFlotante from '../../components/BotonFlotante/BotonFlotante';
 import Modal from 'react-modal';
 import FiltrosPeliculas from '../../components/Filtros/Filtros'; 
 
@@ -55,11 +56,27 @@ const Home = () => {
     localStorage.setItem(LOCAL_STORAGE_VISTAS_KEY, JSON.stringify(vistas));
   }, [vistas]);
 
+
+  const agregarAPeliculasPorGenero = (nuevoItem) => {
+    const genero = nuevoItem.genero;
+    const nuevasPeliculas = {
+      ...peliculasPorGenero,
+      [genero]: [...(peliculasPorGenero[genero] || []), nuevoItem],
+    };
+    setPeliculasPorGenero(nuevasPeliculas);
+    setPeliculasPorGeneroOriginal(nuevasPeliculas);
+    setPeliculasPorGeneroFiltrada(nuevasPeliculas);
+  };
+  
+
+
   const handleAgregarPorVer = (nuevoItem) => {
+    agregarAPeliculasPorGenero(nuevoItem);
     setPorVer([...porVer, { ...nuevoItem, visto: false }]);
   };
 
   const handleAgregarVista = (nuevoItem) => {
+    agregarAPeliculasPorGenero(nuevoItem);
     setVistas([...vistas, { ...nuevoItem, visto: true }]);
   };
 
@@ -179,6 +196,7 @@ const Home = () => {
     setPeliculasPorGeneroFiltrada(peliculasOrdenadas);
   };
 
+
   return (
     <div className={styles.MainContainer}>
       <div className={styles.Menu}>
@@ -229,15 +247,22 @@ const Home = () => {
         </div>
 
         <div className={styles.Contenido}>
-          {mostrarFormulario && (
-            <FormularioItem
-              onAgregarPorVer={handleAgregarPorVer}
-              onAgregarVista={handleAgregarVista}
-              onCancelar={handleCancelarFormulario}
-              itemEditando={itemEditando}
-              onEditarConfirmado={handleEditarConfirmado}
-            />
-          )}
+        <Modal
+  isOpen={mostrarFormulario}
+  onRequestClose={handleCancelarFormulario}
+  contentLabel="Formulario Película"
+  className={styles.Modal}
+  overlayClassName={styles.Overlay}
+>
+  <FormularioItem
+    onAgregarPorVer={handleAgregarPorVer}
+    onAgregarVista={handleAgregarVista}
+    onCancelar={handleCancelarFormulario}
+    itemEditando={itemEditando}
+    onEditarConfirmado={handleEditarConfirmado}
+  />
+</Modal>
+
 {vistaActual === 'home' && (
   <>
     {/* <FiltrosPeliculas
@@ -318,6 +343,7 @@ const Home = () => {
           )}
         </div>
       </div>
+      <BotonFlotante onClick={() => setMostrarFormulario(true)}>+</BotonFlotante>
     </div>
   );
 };
