@@ -26,7 +26,9 @@ Aplicación desarrollada en React para gestionar películas y series por ver y y
    git clone https://github.com/Nico9220/TP-React.git
    cd TP-React
 
+## ⚙️ Link a Vercel
 
+https://tp-react-hazel.vercel.app/
 
 # React + Vite
 
