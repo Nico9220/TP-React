@@ -159,6 +159,7 @@ const Home = () => {
     }
 
     setPeliculasPorGeneroFiltrada(resultadosPorGenero);
+    //borrar console.log antes de entregar
     console.log('resultado  '+Object.values(resultadosPorGenero));
     setNoHayResultadosFiltro(hayFiltroActivo && !algunaPeliculaEncontrada); 
   };
@@ -265,6 +266,7 @@ const Home = () => {
 
 {vistaActual === 'home' && (
   <>
+  {/* Borrar antes de entregar */}
     {/* <FiltrosPeliculas
       peliculasPorGenero={peliculasPorGeneroOriginal}
       onFiltrarPeliculas={handleFiltrarPeliculas}
@@ -301,6 +303,7 @@ const Home = () => {
               onMarcarPorVer={handleAgregarPorVer}
               onEditar={handleEditar}
               onCancelarFormulario={handleCancelarFormulario}
+              // borrar antes de entregar
               // onEliminar={handleEliminar}
             />
           )}

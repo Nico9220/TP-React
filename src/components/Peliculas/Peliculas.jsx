@@ -1,3 +1,4 @@
+// Borrar si no se usa
 // import CardPelicula from '../CardPelicula/CardPelicula';
 // import FormularioItem from '../FormularioItem/FormularioItem';
 // import styles from './Peliculas.module.css';
