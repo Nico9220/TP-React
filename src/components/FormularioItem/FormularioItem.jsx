@@ -13,6 +13,7 @@ const FormularioItem = ({ onAgregarPorVer, onAgregarVista, onCancelar, itemEdita
   // se estamos EDITANDO, precargamos los campos
   useEffect(() => {
     if (itemEditando) {
+      //borrar log
       console.log("EDITANDO:", itemEditando);
       setTitulo(itemEditando.titulo);
       setDirector(itemEditando.director);
@@ -84,6 +85,7 @@ const FormularioItem = ({ onAgregarPorVer, onAgregarVista, onCancelar, itemEdita
         <option value="Serie">Serie</option>
       </select>
 
+//Si estos chechboxes son mutualmente excluyentes, podria haber sido un radio button
       <div className={styles.checkboxGroup}>
         <label>
           <input type="checkbox" checked={agregarPorVer} onChange={() => setAgregarPorVer(true)} />

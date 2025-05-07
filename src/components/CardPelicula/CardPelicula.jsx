@@ -11,6 +11,7 @@ const CardPelicula = ({ item, onMarcarVista, onMarcarPorVer = () => {}, onEditar
       <p><strong>Rating:</strong> ⭐ {item.rating}</p>
       <p><strong>Tipo:</strong> {item.tipo}</p>
 
+{/* Todos estos botones comparten la misma estructura y estilado, deberia ser un componente aparte */}
       <button
   className={styles.boton}
   onClick={(e) => {

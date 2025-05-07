@@ -59,6 +59,7 @@ const ListaPeliculas = ({ peliculas }) => {
                 <td>{pelicula.anio}</td>
                 <td>{pelicula.genero.join(', ')}</td>
                 <td className="acciones-tabla">
+                  {/* Estos botones no hacen nada, o los eliminan o les agregan onclicks */}
                   <button className="boton-por-ver">Por Ver</button>
                   <button className="boton-vista">Vista</button>
                 </td>

@@ -1,3 +1,18 @@
+Correcciones
+
+- Cumple con todas las funcionalidades pedidas.
+- Codigo bien modularizado. Componentes simples y reutilizables. 
+- Buen uso de localstorage y useState
+
+observaciones:
+Borren archivos vacios, logs y assets que no usan antes de entregar. 
+Hay botones que no tienen accion, no funcionan.
+Usar prettier para mantener un estilo de codigo a lo largo de todo el proyecto
+Eviten hacer carpetas de componentes dentro de componentes (como en la carpeta peliculas).
+
+Nota: 9.
+
+
 # TP React – Gestor de Películas y Series 🎬
 
 ## 👨‍💻 Integrantes del grupo
